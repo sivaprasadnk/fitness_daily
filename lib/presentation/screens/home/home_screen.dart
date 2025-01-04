@@ -1,6 +1,8 @@
+import 'package:fitness_daily/core/common_strings.dart';
 import 'package:fitness_daily/presentation/screens/home/featured_post_section.dart';
 import 'package:fitness_daily/presentation/screens/home/quote_section.dart';
 import 'package:fitness_daily/presentation/screens/home/recent_posts_section.dart';
+import 'package:fitness_daily/presentation/screens/home/widgets/footer_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -9,13 +11,33 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(kAppName),
+        actions: [
+          GestureDetector(
+            onTap: () {},
+            child: Text('Home'),
+          ),
+          SizedBox(width: 30),
+          GestureDetector(
+            onTap: () {},
+            child: Text('About'),
+          ),
+          SizedBox(width: 30),
+          GestureDetector(
+            onTap: () {},
+            child: Text('Contact'),
+          ),
+          SizedBox(width: 50),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 75),
+              SizedBox(height: 30),
               Image.asset(
                 'assets/images/cover.png',
                 height: 400,
@@ -34,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'Fitness Daily',
+                      kAppName,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 30,
@@ -43,11 +65,12 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 100),
+              SizedBox(height: 75),
               FeaturedPostSection(),
               RecentPostsSection(),
               QuoteSection(),
-              SizedBox(height: 250),
+              SizedBox(height: 150),
+              FooterWidget(),
             ],
           ),
         ),

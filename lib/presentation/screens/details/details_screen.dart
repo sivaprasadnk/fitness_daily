@@ -1,4 +1,5 @@
 import 'package:fitness_daily/core/common_colors.dart';
+import 'package:fitness_daily/core/common_strings.dart';
 import 'package:fitness_daily/data/models/blog_model.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,12 @@ class DetailsScreen extends StatelessWidget {
       backgroundColor: kBlueGreyColor,
       appBar: AppBar(
         backgroundColor: kBlueGreyColor,
-        title: Text('Fitness Daily'),
+        title: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Text(kAppName),
+        ),
         elevation: 0,
         scrolledUnderElevation: 0,
         automaticallyImplyLeading: false,

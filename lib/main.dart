@@ -1,3 +1,4 @@
+import 'package:fitness_daily/core/common_strings.dart';
 import 'package:fitness_daily/presentation/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Fitness Daily',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: kPlayFairDisplayFont,
         appBarTheme: AppBarTheme(
           scrolledUnderElevation: 0,
         ),

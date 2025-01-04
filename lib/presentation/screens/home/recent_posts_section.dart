@@ -1,7 +1,7 @@
 import 'package:fitness_daily/core/common_colors.dart';
 import 'package:fitness_daily/core/constants.dart';
 import 'package:fitness_daily/core/utils/extensions/context_extensions.dart';
-import 'package:fitness_daily/presentation/screens/details/details_screen.dart';
+import 'package:fitness_daily/presentation/screens/home/recent_post_item.dart';
 import 'package:fitness_daily/presentation/screens/home/section_title.dart';
 import 'package:flutter/material.dart';
 
@@ -41,49 +41,7 @@ class RecentPostsSection extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   var blog = blogs[index];
-                  return GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => DetailsScreen(
-                            blog: blog,
-                          ),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      height: 320,
-                      width: 300,
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(24.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              blog.title!,
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              blog.subTitle!,
-                              style: TextStyle(
-                                fontSize: 16,
-                              ),
-                              maxLines: 8,
-                              overflow: TextOverflow.ellipsis,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
+                  return RecentPostItem(blog: blog);
                 },
               ),
             )
