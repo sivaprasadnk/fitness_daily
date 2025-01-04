@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
       title: 'Fitness Daily',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          scrolledUnderElevation: 0,
+        ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),

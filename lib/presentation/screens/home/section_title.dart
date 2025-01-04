@@ -4,8 +4,10 @@ class SectionTitle extends StatelessWidget {
   const SectionTitle({
     super.key,
     required this.title,
+    this.textColor = Colors.black,
   });
   final String title;
+  final Color textColor;
   @override
   Widget build(BuildContext context) {
     return Text(
@@ -13,6 +15,7 @@ class SectionTitle extends StatelessWidget {
       style: TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.w500,
+        color: textColor,
       ),
     );
   }
