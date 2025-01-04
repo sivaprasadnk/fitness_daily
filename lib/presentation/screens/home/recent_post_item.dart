@@ -35,23 +35,25 @@ class RecentPostItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                blog.title!,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
+              if (blog.title != null)
+                Text(
+                  blog.title!,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
                 ),
-              ),
               SizedBox(height: 20),
-              Text(
-                blog.subTitle!,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.normal,
+              if (blog.subTitle != null)
+                Text(
+                  blog.subTitle!,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.normal,
+                  ),
+                  maxLines: 8,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                maxLines: 8,
-                overflow: TextOverflow.ellipsis,
-              ),
               Spacer(),
               ReadMoreButton(),
             ],

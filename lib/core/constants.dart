@@ -61,5 +61,35 @@ Life Lessons From Fitness
 ### Celebrate Progress: Whether it's lifting heavier weights or finding moments of joy, celebrate every milestone, big or small.
 
 Final Thoughts
-Fitness is not about a single workout or a specific weight goal; it's about embracing a lifestyle that uplifts your body, mind, and soul. When you prioritize fitness, you're not just building a better body—you're creating a more vibrant, resilient version of yourself ready to tackle life's adventures.''')
+Fitness is not about a single workout or a specific weight goal; it's about embracing a lifestyle that uplifts your body, mind, and soul. When you prioritize fitness, you're not just building a better body—you're creating a more vibrant, resilient version of yourself ready to tackle life's adventures.''',
+  ),
+  BlogModel(
+    title: 'Sleep Smarter: Unlock Peak Health and Performance',
+    subTitle:
+        "Sleep is more than just rest; it's a vital component of your physical and mental well-being. Quality sleep improves recovery, sharpens focus, and balances your energy for the day ahead. Without it, even the best fitness routines can fall short.",
+    content: '''
+Sleep is a cornerstone of a healthy lifestyle. Here's why it matters:
+
+1. Supports Recovery: During sleep, your body repairs muscles and tissues, helping you recover from workouts and daily stress.
+
+2. Boosts Mental Health: Adequate sleep improves mood, reduces stress, and enhances cognitive functions like focus and decision-making.
+
+3. Regulates Appetite: Poor sleep can disrupt hunger hormones, leading to overeating and unhealthy food choices.
+
+4. Enhances Performance: Quality sleep boosts energy, stamina, and overall performance in physical activities.
+
+Tips to Improve Sleep Quality
+
+1. Stick to a Consistent Schedule: Going to bed and waking up at the same time every day helps regulate your body’s internal clock.
+
+2. Create a Relaxing Bedtime Routine: Engage in calming activities such as reading, meditating, or taking a warm bath before bed.
+
+3. Limit Screen Time: Avoid screens at least an hour before bedtime, as blue light can interfere with your sleep cycle.
+
+4. Optimize Your Sleep Environment: Ensure your bedroom is cool, dark, and quiet for a better sleep experience.
+
+5. Watch Your Diet: Avoid heavy meals, caffeine, and alcohol close to bedtime.
+''',
+    date: 'Jan 5,2025',
+  ),
 ];

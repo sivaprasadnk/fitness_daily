@@ -40,8 +40,11 @@ class DetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  if (blog.date != null)
                   Text(blog.date!),
+                  if (blog.date != null)
                   SizedBox(height: 16),
+                  if (blog.title != null)
                   Text(
                     blog.title!,
                     style: TextStyle(
@@ -49,9 +52,13 @@ class DetailsScreen extends StatelessWidget {
                       fontSize: 18,
                     ),
                   ),
+                  if (blog.title != null)
                   SizedBox(height: 32),
+                  if (blog.subTitle != null)
                   Text(blog.subTitle!),
+                  if (blog.subTitle != null)
                   SizedBox(height: 16),
+                  if (blog.content != null)
                   Text(blog.content!),
                 ],
               ),
