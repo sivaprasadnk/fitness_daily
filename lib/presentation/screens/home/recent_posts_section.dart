@@ -1,5 +1,6 @@
 import 'package:fitness_daily/core/common_colors.dart';
 import 'package:fitness_daily/core/constants.dart';
+import 'package:fitness_daily/core/utils/extensions/context_extensions.dart';
 import 'package:fitness_daily/presentation/screens/details/details_screen.dart';
 import 'package:fitness_daily/presentation/screens/home/section_title.dart';
 import 'package:flutter/material.dart';
@@ -9,11 +10,15 @@ class RecentPostsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = context.screenWidth;
     return Container(
       color: kBlack12Color,
       width: double.infinity,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 200, vertical: 100),
+        padding: EdgeInsets.symmetric(vertical: 100) +
+            EdgeInsets.only(
+              left: width > 1325 ? 200 : width * .08,
+            ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
