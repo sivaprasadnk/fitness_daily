@@ -3,4 +3,4 @@ const kPlayFairDisplayFont = 'PlayfairDisplay';
 const kRobotoFont = 'Roboto';
 
 ///
-const kAppName = 'Fitness Daily';
+const kAppName = 'FitnessThoughts By SP';

@@ -1,6 +1,7 @@
 import 'package:fitness_daily/core/common_colors.dart';
 import 'package:fitness_daily/core/constants.dart';
 import 'package:fitness_daily/core/utils/extensions/context_extensions.dart';
+import 'package:fitness_daily/core/utils/extensions/date_time_extensions.dart';
 import 'package:fitness_daily/presentation/screens/components/read_more_button.dart';
 import 'package:fitness_daily/presentation/screens/details/details_screen.dart';
 import 'package:fitness_daily/presentation/screens/home/section_title.dart';
@@ -13,7 +14,7 @@ class FeaturedPostSection extends StatelessWidget {
   Widget build(BuildContext context) {
     debugPrint("## width :${context.screenWidth}");
     var width = context.screenWidth;
-    var blog = blogs[0];
+    var blog = blogs.where((blog) => blog.id == 2).first;
     return Container(
       width: context.screenWidth,
       color: kBlueGreyColor,
@@ -22,7 +23,7 @@ class FeaturedPostSection extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(vertical: 100) +
-                EdgeInsets.only(left: width > 1325 ? 200 : width * .08),
+                EdgeInsets.only(left: width > 1325 ? 150 : width * .08),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -63,7 +64,7 @@ class FeaturedPostSection extends StatelessWidget {
                             children: [
                               SizedBox(height: 20),
                               Text(
-                                blog.date!,
+                                blog.date!.displaydate(),
                                 style: TextStyle(
                                   color: kWhiteColor,
                                 ),

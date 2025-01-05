@@ -1,4 +1,5 @@
 import 'package:fitness_daily/core/common_strings.dart';
+import 'package:fitness_daily/presentation/screens/about/about_screen.dart';
 import 'package:fitness_daily/presentation/screens/home/featured_post_section.dart';
 import 'package:fitness_daily/presentation/screens/home/quote_section.dart';
 import 'package:fitness_daily/presentation/screens/home/recent_posts_section.dart';
@@ -12,7 +13,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(kAppName),
+        title: Text(
+          kAppName,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         actions: [
           GestureDetector(
             onTap: () {},
@@ -20,7 +26,10 @@ class HomeScreen extends StatelessWidget {
           ),
           SizedBox(width: 30),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AboutScreen()));
+            },
             child: Text('About'),
           ),
           SizedBox(width: 30),
@@ -39,7 +48,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               SizedBox(height: 30),
               Image.asset(
-                'assets/images/cover.png',
+                'assets/images/cover1.jpg',
                 height: 400,
                 width: double.infinity,
                 fit: BoxFit.contain,

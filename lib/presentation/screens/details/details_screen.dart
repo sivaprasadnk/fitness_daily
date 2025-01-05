@@ -1,5 +1,6 @@
 import 'package:fitness_daily/core/common_colors.dart';
 import 'package:fitness_daily/core/common_strings.dart';
+import 'package:fitness_daily/core/utils/extensions/date_time_extensions.dart';
 import 'package:fitness_daily/data/models/blog_model.dart';
 import 'package:flutter/material.dart';
 
@@ -41,7 +42,7 @@ class DetailsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   if (blog.date != null)
-                  Text(blog.date!),
+                  Text(blog.date!.displaydate()),
                   if (blog.date != null)
                   SizedBox(height: 16),
                   if (blog.title != null)

@@ -17,7 +17,7 @@ class RecentPostsSection extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 100) +
             EdgeInsets.only(
-              left: width > 1325 ? 200 : width * .08,
+              left: width > 1325 ? 150 : width * .08,
             ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +31,7 @@ class RecentPostsSection extends StatelessWidget {
             ),
             SizedBox(height: 50),
             SizedBox(
-              height: 330,
+              height: 350,
               child: ListView.separated(
                 separatorBuilder: (context, index) {
                   return SizedBox(width: 50);

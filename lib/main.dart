@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Fitness Daily',
+      title: kAppName,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: kPlayFairDisplayFont,

@@ -3,7 +3,93 @@ import 'package:fitness_daily/data/models/blog_model.dart';
 const quote =
     "Fitness is not about being better than someone else; \nit's about being better than you used to be.";
 
+
+const about = '''
+
+### **About FitnessVibes by SP**  
+
+Welcome to **FitnessVibes by SP**, your go-to platform for all things fitness, health, and wellness. Whether you're a beginner just starting your fitness journey or a seasoned enthusiast striving for new milestones, we're here to guide and inspire you every step of the way.  
+
+---
+
+### **Our Purpose**  
+At **FitnessVibes by SP**, we aim to empower individuals to embrace a healthier, more active lifestyle. By combining expert advice, practical tips, and motivational resources, we strive to help you unlock your full potential and achieve your fitness goals.  
+
+---
+
+### **What We Offer**  
+- **Workout Plans**: Easy-to-follow routines tailored for every fitness level.  
+- **Healthy Recipes**: Nutritious meal ideas to complement your fitness journey.  
+- **Expert Insights**: Articles on exercise science, diet, and wellness trends.  
+- **Mind & Body**: Resources for mental health, mindfulness, and balance.  
+- **Community Spirit**: A supportive space to connect, share, and grow with fellow fitness enthusiasts.  
+
+---
+
+### **Why FitnessVibes by SP?**  
+We stand out because:  
+- **Trusted Content**: Every tip, guide, and resource is research-based and actionable.  
+- **All-Inclusive Approach**: We believe fitness is for everyone, regardless of age or experience.  
+- **Passion-Driven**: Fitness is not just a topic—it's a way of life we love to share.  
+
+---
+
+### **Our Vision**  
+We envision **FitnessVibes by SP** as more than just a website—it's a movement that encourages people to prioritize their health and well-being. Our goal is to make fitness fun, accessible, and transformative for everyone.  
+
+---
+
+### **Join the Vibes**  
+Stay inspired with daily tips, fresh ideas, and motivational content! Follow us on [Social Media Links] or drop us a line at sivaprasadnk123@gmail.com.  
+
+''';
+
 List<BlogModel> blogs = [
+  BlogModel(
+    date: DateTime(2025, 1, 5),
+    title: "Sleep and Obesity: The Hidden Link You Must Know",
+    subTitle:
+        'Sleep is often overlooked in the journey to maintaining a healthy weight. However, research consistently shows a strong connection between sleep and obesity. Lack of adequate sleep disrupts hormones that regulate hunger and metabolism, making it harder to maintain a healthy weight. Additionally, poor sleep can lead to increased cravings for high-calorie, unhealthy foods, further complicating weight management efforts.',
+    content: '''
+Here's how insufficient or poor-quality sleep can impact your weight:
+
+#### 1. **Hormonal Imbalances**
+
+Lack of sleep disrupts the balance of hunger hormones:
+
+- **Leptin**: This hormone signals fullness to your brain. Sleep deprivation lowers leptin levels, making you feel less satisfied after eating.
+- **Ghrelin**: Known as the "hunger hormone," ghrelin levels increase with poor sleep, leading to increased appetite and cravings.
+
+#### 2. **Increased Cravings for Unhealthy Foods**
+
+Sleep-deprived individuals often crave high-calorie, sugary, and fatty foods. This is because sleep loss affects the brain's reward system, making unhealthy foods more appealing.
+
+#### 3. **Reduced Energy and Activity Levels**
+
+Poor sleep leads to fatigue, reducing your motivation to exercise or stay active. Lower physical activity means fewer calories burned, contributing to weight gain.
+
+#### 4. **Disrupted Metabolism**
+
+Insufficient sleep affects how your body processes glucose, increasing the risk of insulin resistance and weight gain. Over time, this can contribute to conditions like diabetes and obesity.
+
+#### 5. **Supports Physical Recovery**
+
+Sleep plays a crucial role in repairing and recovering the body. During deep sleep stages, your body works to repair muscles, tissues, and cells damaged during daily activities or workouts. This recovery process helps maintain physical health and improves overall energy levels.
+
+Insufficient sleep affects how your body processes glucose, increasing the risk of insulin resistance and weight gain. Over time, this can contribute to conditions like diabetes and obesity.
+
+### Tips to Break the Cycle
+
+If you're struggling with weight and suspect poor sleep is a factor, consider these tips:
+
+1. **Prioritize Sleep Hygiene**: Maintain a consistent sleep schedule, and create a relaxing bedtime routine.
+2. **Manage Stress**: Practice relaxation techniques such as meditation or deep breathing to improve sleep quality.
+3. **Limit Late-Night Snacking**: Avoid eating heavy meals or sugary snacks close to bedtime.
+4. **Be Physically Active**: Regular exercise promotes better sleep and helps manage weight.
+5. **Seek Professional Help**: If sleep issues persist, consult a healthcare provider to address underlying problems like sleep apnea.
+''',
+    id: 4,
+  ),
   BlogModel(
     title: '7 Secrets to Building a Sustainable Fitness Lifestyle',
     subTitle:
@@ -16,7 +102,7 @@ Start small and focus on attainable goals. Instead of aiming to lose 10 kg in a 
 
 2. Find Your Motivation
 
-Identify your 'why.' Whether it’s improving your health, boosting your energy, or feeling confident, knowing your reason keeps you driven. Write it down and revisit it during tough days.
+Identify your 'why.' Whether it's improving your health, boosting your energy, or feeling confident, knowing your reason keeps you driven. Write it down and revisit it during tough days.
 
 3. Consistency is Key
 
@@ -24,7 +110,7 @@ Consistency beats intensity over time. Aim for regular workouts and balanced mea
 
 4. Make Fitness Enjoyable
 
-Choose activities you love. Whether it’s dancing, swimming, cycling, or lifting weights, enjoying the process makes it easier to stay committed. Experiment until you find what lights you up.
+Choose activities you love. Whether it's dancing, swimming, cycling, or lifting weights, enjoying the process makes it easier to stay committed. Experiment until you find what lights you up.
 
 5. Fuel Your Body Right
 
@@ -38,10 +124,11 @@ Rest days are vital for muscle repair and overall health. Incorporate stretching
 
 Keep track of your workouts, meals, and milestones. Use apps or journals to monitor your journey. Seeing progress—even small wins—can be incredibly motivating.
 ''',
-    date: 'Jan 4, 2025',
+    date: DateTime(2025, 01, 04),
+    id: 3,
   ),
   BlogModel(
-      date: 'Jan 3, 2025',
+    date: DateTime(2025, 01, 03),
       title: 'Fitness and Life: Finding Balance in Every Step',
       subTitle:
           "Life is a beautiful journey, and fitness is one of its essential companions. While we often think of fitness as just physical activity, it extends far beyond the gym or a workout routine—it's about building strength, resilience, and harmony in every aspect of life.",
@@ -60,8 +147,8 @@ Life Lessons From Fitness
 ### Adapt and Overcome: Injuries or plateaus in fitness teach us to adapt, which mirrors how we navigate challenges in life.
 ### Celebrate Progress: Whether it's lifting heavier weights or finding moments of joy, celebrate every milestone, big or small.
 
-Final Thoughts
-Fitness is not about a single workout or a specific weight goal; it's about embracing a lifestyle that uplifts your body, mind, and soul. When you prioritize fitness, you're not just building a better body—you're creating a more vibrant, resilient version of yourself ready to tackle life's adventures.''',
+''',
+    id: 2,
   ),
   BlogModel(
     title: 'Sleep Smarter: Unlock Peak Health and Performance',
@@ -80,7 +167,7 @@ Sleep is a cornerstone of a healthy lifestyle. Here's why it matters:
 
 Tips to Improve Sleep Quality
 
-1. Stick to a Consistent Schedule: Going to bed and waking up at the same time every day helps regulate your body’s internal clock.
+1. Stick to a Consistent Schedule: Going to bed and waking up at the same time every day helps regulate your body's internal clock.
 
 2. Create a Relaxing Bedtime Routine: Engage in calming activities such as reading, meditating, or taking a warm bath before bed.
 
@@ -90,6 +177,7 @@ Tips to Improve Sleep Quality
 
 5. Watch Your Diet: Avoid heavy meals, caffeine, and alcohol close to bedtime.
 ''',
-    date: 'Jan 5,2025',
+    date: DateTime(2025, 01, 02),
+    id: 1,
   ),
 ];

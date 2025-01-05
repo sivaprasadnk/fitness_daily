@@ -1,3 +1,4 @@
+import 'package:fitness_daily/core/utils/extensions/date_time_extensions.dart';
 import 'package:fitness_daily/data/models/blog_model.dart';
 import 'package:fitness_daily/presentation/screens/components/read_more_button.dart';
 import 'package:fitness_daily/presentation/screens/details/details_screen.dart';
@@ -20,7 +21,7 @@ class RecentPostItem extends StatelessWidget {
         );
       },
       child: Container(
-        height: 320,
+        // height: 400,
         width: 300,
         decoration: BoxDecoration(
           border: Border.all(),
@@ -35,6 +36,15 @@ class RecentPostItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              if (blog.date != null)
+                Text(
+                  blog.date!.displaydate(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 12,
+                  ),
+                ),
+              SizedBox(height: 10),
               if (blog.title != null)
                 Text(
                   blog.title!,
