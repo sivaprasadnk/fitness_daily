@@ -2,7 +2,7 @@ import 'package:fitness_daily/core/common_colors.dart';
 import 'package:fitness_daily/core/common_strings.dart';
 import 'package:fitness_daily/core/constants.dart';
 import 'package:fitness_daily/core/utils/extensions/context_extensions.dart';
-import 'package:fitness_daily/presentation/screens/home/section_title.dart';
+import 'package:fitness_daily/presentation/screens/home/widgets/section_title.dart';
 import 'package:flutter/material.dart';
 
 class AboutScreen extends StatelessWidget {

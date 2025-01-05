@@ -5,8 +5,15 @@ import 'package:fitness_daily/presentation/screens/details/details_screen.dart';
 import 'package:flutter/material.dart';
 
 class RecentPostItem extends StatelessWidget {
-  const RecentPostItem({super.key, required this.blog});
+  const RecentPostItem({
+    super.key,
+    required this.blog,
+    this.width,
+    this.height,
+  });
   final BlogModel blog;
+  final double? width;
+  final double? height;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,8 +28,8 @@ class RecentPostItem extends StatelessWidget {
         );
       },
       child: Container(
-        // height: 400,
-        width: 300,
+        height: height,
+        width: width,
         decoration: BoxDecoration(
           border: Border.all(),
         ),
@@ -65,7 +72,9 @@ class RecentPostItem extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               Spacer(),
-              ReadMoreButton(),
+              AbsorbPointer(
+                child: ReadMoreButton(),
+              ),
             ],
           ),
         ),

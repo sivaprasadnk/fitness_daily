@@ -1,9 +1,9 @@
 import 'package:fitness_daily/core/common_strings.dart';
 import 'package:fitness_daily/presentation/screens/about/about_screen.dart';
-import 'package:fitness_daily/presentation/screens/home/featured_post_section.dart';
-import 'package:fitness_daily/presentation/screens/home/quote_section.dart';
-import 'package:fitness_daily/presentation/screens/home/recent_posts_section.dart';
+import 'package:fitness_daily/presentation/screens/home/widgets/featured_post_section.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/footer_widget.dart';
+import 'package:fitness_daily/presentation/screens/home/widgets/quote_section.dart';
+import 'package:fitness_daily/presentation/screens/home/widgets/recent_posts_section.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
