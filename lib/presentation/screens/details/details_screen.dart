@@ -18,9 +18,9 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // var blog = blogs.where((blog) => blog.id! == id).first;
     return Scaffold(
-      backgroundColor: kBlack12Color,
+      backgroundColor: kWhiteColor,
       appBar: AppBar(
-        backgroundColor: kBlueGreyColor,
+        backgroundColor: kWhiteColor,
         title: GestureDetector(
           onTap: () {
             Navigator.pop(context);
@@ -33,55 +33,53 @@ class DetailsScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(height: 100),
-            Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: kWhiteColor,
-                // border: Border.all(),
-              ),
-              padding: EdgeInsets.all(50),
-              margin: EdgeInsets.only(left: 200, right: 200),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  if (blog.date != null)
-                  Text(blog.date!.displaydate()),
-                  if (blog.date != null)
-                  SizedBox(height: 16),
-                  if (blog.title != null)
-                  Text(
-                    blog.title!,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                        fontSize: 48,
-                        fontFamily: kLoraFont,
-                    ),
-                  ),
-                  if (blog.title != null)
-                  SizedBox(height: 32),
-                  if (blog.subTitle != null)
-                    Text(
-                      blog.subTitle!,
-                      style: TextStyle(
-                        // fontWeight: FontWeight.bold,
-                        // fontSize: 48,
-                        fontFamily: kLoraFont,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(height: 50),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: kWhiteColor,
+                  // border: Border.all(),
+                ),
+                // padding: EdgeInsets.all(50),
+                // margin: EdgeInsets.only(left: 200, right: 200),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    if (blog.date != null) Text(blog.date!.displaydate()),
+                    if (blog.date != null) SizedBox(height: 16),
+                    if (blog.title != null)
+                      Text(
+                        blog.title!,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 48,
+                          fontFamily: kLoraFont,
+                        ),
                       ),
-                    ),
-                  if (blog.subTitle != null)
-                  SizedBox(height: 16),
-                  if (blog.content != null)
-                  Text(blog.content!),
-                ],
+                    if (blog.title != null) SizedBox(height: 32),
+                    if (blog.subTitle != null)
+                      Text(
+                        blog.subTitle!,
+                        style: TextStyle(
+                          // fontWeight: FontWeight.bold,
+                          // fontSize: 48,
+                          fontFamily: kLoraFont,
+                        ),
+                      ),
+                    if (blog.subTitle != null) SizedBox(height: 16),
+                    if (blog.content != null) Text(blog.content!),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 200),
-          ],
+              SizedBox(height: 200),
+            ],
+          ),
         ),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:fitness_daily/core/constants.dart';
 import 'package:flutter/material.dart';
 
 extension ContextExtensions on BuildContext {
@@ -6,4 +7,6 @@ extension ContextExtensions on BuildContext {
   Color get primaryColor => theme.primaryColor;
   double get screenWidth => screenSize.width;
   double get screenHeight => screenSize.height;
+  bool get isMobileDevice => screenWidth < mobileBreakPoint;
+  bool get isLargeDevice => !isMobileDevice;
 }

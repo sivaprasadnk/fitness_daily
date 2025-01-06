@@ -1,4 +1,5 @@
 import 'package:fitness_daily/core/constants.dart';
+import 'package:fitness_daily/core/utils/extensions/context_extensions.dart';
 import 'package:flutter/material.dart';
 
 class QuoteSection extends StatelessWidget {
@@ -9,17 +10,20 @@ class QuoteSection extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          SizedBox(height: 100),
+          SizedBox(height: context.isLargeDevice ? 100 : 50),
           Image.asset(
             'assets/images/quote.png',
-            height: 75,
+            height: context.isLargeDevice ? 75 : 40,
           ),
           SizedBox(height: 50),
-          Text(
-            quote,
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 24,
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              quote,
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: context.isLargeDevice ? 24 : 16,
+              ),
             ),
           ),
         ],

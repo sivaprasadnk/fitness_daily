@@ -1,8 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fitness_daily/core/common_strings.dart';
+import 'package:fitness_daily/core/constants.dart';
+import 'package:fitness_daily/core/utils/extensions/context_extensions.dart';
 import 'package:fitness_daily/presentation/screens/about/about_screen.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/featured_post_section.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/footer_widget.dart';
+import 'package:fitness_daily/presentation/screens/home/widgets/menu_icon.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/quote_section.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/recent_posts_section.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +16,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = context.screenWidth;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -24,30 +28,35 @@ class HomeScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        actions: [
-          GestureDetector(
-            onTap: () {},
-            child: Text('Home'),
-          ),
-          SizedBox(width: 30),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => AboutScreen()));
-            },
-            child: Text('About'),
-          ),
-          SizedBox(width: 30),
-          GestureDetector(
-            onTap: () {},
-            child: Text('Contact'),
-          ),
-          SizedBox(width: 50),
-        ],
+        actions: (width > mobileBreakPoint)
+            ? [
+                GestureDetector(
+                  onTap: () {},
+                  child: Text('Home'),
+                ),
+                SizedBox(width: 30),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => AboutScreen()));
+                  },
+                  child: Text('About'),
+                ),
+                SizedBox(width: 30),
+                GestureDetector(
+                  onTap: () {},
+                  child: Text('Contact'),
+                ),
+                SizedBox(width: 50),
+              ]
+            : [
+                MenuIcon(),
+                SizedBox(width: 16),
+              ],
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -58,32 +67,34 @@ class HomeScreen extends StatelessWidget {
                 width: double.infinity,
                 fit: BoxFit.contain,
               ),
-              SizedBox(height: 50),
-              Center(
-                child: Column(
-                  children: [
-                    Text(
-                      'Welcome to',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 20,
-                      ),
-                    ),
-                    Text(
-                      kAppName,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 30,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 75),
+              width > mobileBreakPoint
+                  ? SizedBox(height: 50)
+                  : SizedBox(height: 0),
+              // Center(
+              //   child: Column(
+              //     children: [
+              //       Text(
+              //         'Welcome to',
+              //         style: TextStyle(
+              //           fontWeight: FontWeight.w300,
+              //           fontSize: 20,
+              //         ),
+              //       ),
+              //       Text(
+              //         kAppName,
+              //         style: TextStyle(
+              //           fontWeight: FontWeight.bold,
+              //           fontSize: 30,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              if (width > mobileBreakPoint) SizedBox(height: 75),
               FeaturedPostSection(),
               RecentPostsSection(),
               QuoteSection(),
-              SizedBox(height: 150),
+              SizedBox(height: context.isLargeDevice ? 150 : 50),
               FooterWidget(),
             ],
           ),

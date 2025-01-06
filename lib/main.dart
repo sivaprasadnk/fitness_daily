@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       title: kAppName,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        // scaffoldBackgroundColor: kBlueGrey1Color,
         fontFamily: kLoraFont,
         appBarTheme: AppBarTheme(
           scrolledUnderElevation: 0,

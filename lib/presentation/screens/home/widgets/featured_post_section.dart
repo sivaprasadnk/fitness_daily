@@ -16,23 +16,24 @@ class FeaturedPostSection extends StatelessWidget {
     debugPrint("## width :${context.screenWidth}");
     var width = context.screenWidth;
     var horizontalPadding = width * .08;
+    horizontalPadding = 0;
     var blog = blogs.where((blog) => blog.id == 2).first;
-    return Container(
-      width: context.screenWidth,
-      color: kBlueGreyColor,
+    var color = kCustomBlueColor;
+    return SizedBox(
+      width: width,
+      // color: kBlueGreyColor,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 75) +
-            EdgeInsets.only(
-              left: width > 1325 ? 150 : horizontalPadding,
-              bottom: 20,
-            ),
+        padding: EdgeInsets.only(
+          left: width > 1325 ? 150 : horizontalPadding,
+          bottom: width > 945 ? 75 : 0,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
             SectionTitle(
               title: 'F E A T U R E D\nP O S T',
-              textColor: kWhiteColor,
+              textColor: color,
             ),
             SizedBox(height: 20),
             Container(
@@ -43,7 +44,7 @@ class FeaturedPostSection extends StatelessWidget {
             SizedBox(height: 50),
             if (width > 945)
               SizedBox(
-                width: width * .8,
+                width: width * .9,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -56,11 +57,6 @@ class FeaturedPostSection extends StatelessWidget {
                     SizedBox(width: 50),
                     Expanded(
                       child: SizedBox(
-                        // constraints: BoxConstraints(
-                        //   maxWidth: 300,
-                        //   minWidth: 200,
-                        // ),
-                        // width: 400,
                         height: 350,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,7 +66,7 @@ class FeaturedPostSection extends StatelessWidget {
                             Text(
                               blog.date!.displaydate(),
                               style: TextStyle(
-                                color: kWhiteColor,
+                                color: color,
                               ),
                             ),
                             SizedBox(height: 20),
@@ -79,7 +75,7 @@ class FeaturedPostSection extends StatelessWidget {
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 18,
-                                color: kWhiteColor,
+                                color: color,
                               ),
                             ),
                             SizedBox(height: 20),
@@ -87,27 +83,17 @@ class FeaturedPostSection extends StatelessWidget {
                               blog.subTitle!,
                               style: TextStyle(
                                 fontSize: 16,
-                                color: kWhiteColor,
+                                color: color,
                               ),
                               maxLines: width < 1100 ? 6 : 10,
                               overflow: TextOverflow.ellipsis,
                             ),
                             Spacer(),
                             ReadMoreButton(
-                              color: kWhiteColor,
+                              color: color,
                               callback: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //     builder: (_) => DetailsScreen(
-                                //       blog: blog,
-                                //       id: blog.id!,
-                                //     ),
-                                //   ),
-                                // );
                                 AutoRouter.of(context).push(
                                     DetailsRoute(id: blog.id!, blog: blog));
-
                               },
                             ),
                             SizedBox(height: 20),
@@ -123,17 +109,17 @@ class FeaturedPostSection extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(right: horizontalPadding),
                 child: Image.asset(
-                  'assets/images/cover.png',
-                  height: 350,
+                  'assets/images/image1.jpg',
+                  height: 250,
                   width: double.infinity,
-                  fit: BoxFit.contain,
+                  fit: BoxFit.cover,
                 ),
               ),
               SizedBox(height: 20),
               Text(
                 blog.date!.displaydate(),
                 style: TextStyle(
-                  color: kWhiteColor,
+                  color: color,
                 ),
               ),
               SizedBox(height: 20),
@@ -144,7 +130,7 @@ class FeaturedPostSection extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
-                    color: kWhiteColor,
+                    color: color,
                   ),
                 ),
               ),
@@ -155,27 +141,18 @@ class FeaturedPostSection extends StatelessWidget {
                   blog.subTitle!,
                   style: TextStyle(
                     fontSize: 16,
-                    color: kWhiteColor,
+                    color: color,
                   ),
                   maxLines: width < 1100 ? 6 : 10,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-              // Spacer(),
+              SizedBox(height: 20),
               Padding(
                 padding: EdgeInsets.only(right: horizontalPadding),
                 child: ReadMoreButton(
-                  color: kWhiteColor,
+                  color: color,
                   callback: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (_) => DetailsScreen(
-                    //       blog: blog,
-                    //       id: blog.id!,
-                    //     ),
-                    //   ),
-                    // );
                     AutoRouter.of(context)
                         .push(DetailsRoute(id: blog.id!, blog: blog));
                   },
@@ -183,17 +160,6 @@ class FeaturedPostSection extends StatelessWidget {
               ),
               SizedBox(height: 20),
             ],
-            // SizedBox(
-            //   width: width * .8,
-            //   height: 595,
-            //   child: Column(
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     mainAxisSize: MainAxisSize.min,
-            //     children: [
-
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ),

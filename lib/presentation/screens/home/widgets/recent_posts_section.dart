@@ -1,4 +1,3 @@
-import 'package:fitness_daily/core/common_colors.dart';
 import 'package:fitness_daily/core/constants.dart';
 import 'package:fitness_daily/core/utils/extensions/context_extensions.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/recent_post_item.dart';
@@ -12,13 +11,14 @@ class RecentPostsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     var width = context.screenWidth;
     var horizontalPadding = width * .08;
-    return Container(
-      color: kBlack12Color,
+    horizontalPadding = 0;
+    return SizedBox(
+      // color: kBlack12Color,
       width: double.infinity,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 100) +
+        padding: EdgeInsets.symmetric(vertical: context.isLargeDevice ? 0 : 0) +
             EdgeInsets.only(
-              left: width > 1325 ? 150 : width * .08,
+              left: width > 1325 ? 150 : horizontalPadding,
             ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,9 +36,6 @@ class RecentPostsSection extends StatelessWidget {
               SizedBox(
                 height: 380,
                 child: ListView.builder(
-                  // separatorBuilder: (context, index) {
-                  //   return SizedBox(width: 50);
-                  // },
                   shrinkWrap: true,
                   itemCount: blogs.length,
                   scrollDirection: Axis.horizontal,

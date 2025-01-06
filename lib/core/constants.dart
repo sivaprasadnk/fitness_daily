@@ -1,5 +1,7 @@
 import 'package:fitness_daily/data/models/blog_model.dart';
 
+const int mobileBreakPoint = 695;
+
 const quote =
     "Fitness is not about being better than someone else; \nit's about being better than you used to be.";
 
