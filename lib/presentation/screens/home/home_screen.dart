@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fitness_daily/core/common_strings.dart';
 import 'package:fitness_daily/presentation/screens/about/about_screen.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/featured_post_section.dart';
@@ -6,13 +7,17 @@ import 'package:fitness_daily/presentation/screens/home/widgets/quote_section.da
 import 'package:fitness_daily/presentation/screens/home/widgets/recent_posts_section.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
+        elevation: 0,
+        scrolledUnderElevation: 0,
         title: Text(
           kAppName,
           style: TextStyle(

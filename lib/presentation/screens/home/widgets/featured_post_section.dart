@@ -1,10 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fitness_daily/core/common_colors.dart';
 import 'package:fitness_daily/core/constants.dart';
 import 'package:fitness_daily/core/utils/extensions/context_extensions.dart';
 import 'package:fitness_daily/core/utils/extensions/date_time_extensions.dart';
 import 'package:fitness_daily/presentation/screens/components/read_more_button.dart';
-import 'package:fitness_daily/presentation/screens/details/details_screen.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/section_title.dart';
+import 'package:fitness_daily/router.gr.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedPostSection extends StatelessWidget {
@@ -95,14 +96,18 @@ class FeaturedPostSection extends StatelessWidget {
                             ReadMoreButton(
                               color: kWhiteColor,
                               callback: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => DetailsScreen(
-                                      blog: blog,
-                                    ),
-                                  ),
-                                );
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (_) => DetailsScreen(
+                                //       blog: blog,
+                                //       id: blog.id!,
+                                //     ),
+                                //   ),
+                                // );
+                                AutoRouter.of(context).push(
+                                    DetailsRoute(id: blog.id!, blog: blog));
+
                               },
                             ),
                             SizedBox(height: 20),
@@ -162,14 +167,17 @@ class FeaturedPostSection extends StatelessWidget {
                 child: ReadMoreButton(
                   color: kWhiteColor,
                   callback: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => DetailsScreen(
-                          blog: blog,
-                        ),
-                      ),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (_) => DetailsScreen(
+                    //       blog: blog,
+                    //       id: blog.id!,
+                    //     ),
+                    //   ),
+                    // );
+                    AutoRouter.of(context)
+                        .push(DetailsRoute(id: blog.id!, blog: blog));
                   },
                 ),
               ),

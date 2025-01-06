@@ -22,7 +22,7 @@ class ReadMoreButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Padding(
-            padding: const EdgeInsets.only(bottom: 4),
+            padding: const EdgeInsets.only(bottom: 0),
             child: Text(
               'Read More',
               style: TextStyle(

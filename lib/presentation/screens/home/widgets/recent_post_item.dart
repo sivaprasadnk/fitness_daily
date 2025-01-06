@@ -1,9 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fitness_daily/core/utils/extensions/date_time_extensions.dart';
 import 'package:fitness_daily/data/models/blog_model.dart';
 import 'package:fitness_daily/presentation/screens/components/read_more_button.dart';
-import 'package:fitness_daily/presentation/screens/details/details_screen.dart';
+import 'package:fitness_daily/router.gr.dart';
 import 'package:flutter/material.dart';
-
+// import 'package:universal_html/html.dart' as html;
 class RecentPostItem extends StatelessWidget {
   const RecentPostItem({
     super.key,
@@ -18,14 +19,21 @@ class RecentPostItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => DetailsScreen(
-              blog: blog,
-            ),
-          ),
-        );
+        AutoRouter.of(context).push(DetailsRoute(id: blog.id!, blog: blog));
+        // context.pushRoute(DetailsRoute(
+        //   // blog: blog,
+        //   id: blog.id!,
+        // ));
+        // router.push()
+        // html.window.history.pushState({}, '', '/blog-${blog.id!}');
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (_) => DetailsScreen(
+        //       blog: blog,
+        //     ),
+        //   ),
+        // );
       },
       child: Container(
         height: height,

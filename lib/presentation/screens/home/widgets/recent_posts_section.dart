@@ -34,19 +34,22 @@ class RecentPostsSection extends StatelessWidget {
             SizedBox(height: 50),
             if (width > 730)
               SizedBox(
-                height: 350,
-                child: ListView.separated(
-                  separatorBuilder: (context, index) {
-                    return SizedBox(width: 50);
-                  },
+                height: 380,
+                child: ListView.builder(
+                  // separatorBuilder: (context, index) {
+                  //   return SizedBox(width: 50);
+                  // },
                   shrinkWrap: true,
                   itemCount: blogs.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     var blog = blogs[index];
-                    return RecentPostItem(
-                      blog: blog,
-                      width: 300,
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 50),
+                      child: RecentPostItem(
+                        blog: blog,
+                        width: 310,
+                      ),
                     );
                   },
                 ),

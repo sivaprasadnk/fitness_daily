@@ -1,3 +1,4 @@
+import 'package:fitness_daily/core/common_strings.dart';
 import 'package:flutter/material.dart';
 
 class SectionTitle extends StatelessWidget {
@@ -15,6 +16,7 @@ class SectionTitle extends StatelessWidget {
       style: TextStyle(
         fontSize: 24,
         fontWeight: FontWeight.w500,
+        fontFamily: kPlayFairDisplayFont,
         color: textColor,
       ),
     );

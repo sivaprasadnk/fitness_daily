@@ -1,16 +1,24 @@
+import 'package:auto_route/annotations.dart';
 import 'package:fitness_daily/core/common_colors.dart';
 import 'package:fitness_daily/core/common_strings.dart';
 import 'package:fitness_daily/core/utils/extensions/date_time_extensions.dart';
 import 'package:fitness_daily/data/models/blog_model.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
 class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({super.key, required this.blog});
+  const DetailsScreen({
+    super.key,
+    required this.blog,
+    @PathParam('id') required this.id,
+  });
   final BlogModel blog;
+  final int id;
   @override
   Widget build(BuildContext context) {
+    // var blog = blogs.where((blog) => blog.id! == id).first;
     return Scaffold(
-      backgroundColor: kBlueGreyColor,
+      backgroundColor: kBlack12Color,
       appBar: AppBar(
         backgroundColor: kBlueGreyColor,
         title: GestureDetector(
@@ -34,12 +42,12 @@ class DetailsScreen extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: kWhiteColor,
-                border: Border.all(),
+                // border: Border.all(),
               ),
               padding: EdgeInsets.all(50),
               margin: EdgeInsets.only(left: 200, right: 200),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   if (blog.date != null)
                   Text(blog.date!.displaydate()),
@@ -50,13 +58,21 @@ class DetailsScreen extends StatelessWidget {
                     blog.title!,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                        fontSize: 48,
+                        fontFamily: kLoraFont,
                     ),
                   ),
                   if (blog.title != null)
                   SizedBox(height: 32),
                   if (blog.subTitle != null)
-                  Text(blog.subTitle!),
+                    Text(
+                      blog.subTitle!,
+                      style: TextStyle(
+                        // fontWeight: FontWeight.bold,
+                        // fontSize: 48,
+                        fontFamily: kLoraFont,
+                      ),
+                    ),
                   if (blog.subTitle != null)
                   SizedBox(height: 16),
                   if (blog.content != null)
