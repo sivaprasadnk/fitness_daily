@@ -6,6 +6,8 @@ class BlogModel {
   String? content;
   String? author;
   List<String> tags;
+  String? imageAssetPath;
+  String? imageNetworkPath;
   BlogModel({
     this.id,
     this.content = '',
@@ -13,6 +15,8 @@ class BlogModel {
     this.title = '',
     this.subTitle = '',
     this.author = "",
+    this.imageAssetPath = "",
+    this.imageNetworkPath = "",
     this.tags = const [],
   });
 }

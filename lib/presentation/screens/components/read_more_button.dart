@@ -1,3 +1,4 @@
+import 'package:fitness_daily/core/utils/extensions/widget_extensions.dart';
 import 'package:flutter/material.dart';
 
 class ReadMoreButton extends StatelessWidget {
@@ -39,6 +40,6 @@ class ReadMoreButton extends StatelessWidget {
           )
         ],
       ),
-    );
+    ).showCursorOnHover;
   }
 }

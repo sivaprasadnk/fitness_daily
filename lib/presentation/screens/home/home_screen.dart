@@ -17,11 +17,19 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = context.screenWidth;
+    double horizontalPadding = width > 1325
+        ? 150
+        : width > 950
+            ? 80
+            : 20;
+    horizontalPadding = context.horizontalPadding;
     return Scaffold(
+      // backgroundColor: kWhiteColor,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,
-        scrolledUnderElevation: 0,
+        centerTitle: true,
+        // scrolledUnderElevation: 0,
         title: Text(
           kAppName,
           style: TextStyle(
@@ -56,19 +64,26 @@ class HomeScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+          padding: const EdgeInsets.symmetric(horizontal: 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 30),
-              Image.asset(
-                'assets/images/cover1.jpg',
-                height: 400,
-                width: double.infinity,
-                fit: BoxFit.contain,
+              Padding(
+                padding: EdgeInsets.only(
+                  left: horizontalPadding,
+                  right: horizontalPadding,
+                  bottom: width > 945 ? 75 : 0,
+                ),
+                child: Image.asset(
+                  'assets/images/cover1.jpg',
+                  height: 700,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
               ),
               width > mobileBreakPoint
-                  ? SizedBox(height: 50)
+                  ? SizedBox(height: 00)
                   : SizedBox(height: 0),
               // Center(
               //   child: Column(
@@ -91,7 +106,7 @@ class HomeScreen extends StatelessWidget {
               //   ),
               // ),
               if (width > mobileBreakPoint) SizedBox(height: 75),
-              FeaturedPostSection(),
+              FeaturedPostSection(), 
               RecentPostsSection(),
               QuoteSection(),
               SizedBox(height: context.isLargeDevice ? 150 : 50),

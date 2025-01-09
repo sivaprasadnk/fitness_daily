@@ -1,7 +1,9 @@
 import 'package:auto_route/annotations.dart';
 import 'package:fitness_daily/core/common_colors.dart';
 import 'package:fitness_daily/core/common_strings.dart';
+import 'package:fitness_daily/core/utils/extensions/context_extensions.dart';
 import 'package:fitness_daily/core/utils/extensions/date_time_extensions.dart';
+import 'package:fitness_daily/core/utils/extensions/widget_extensions.dart';
 import 'package:fitness_daily/data/models/blog_model.dart';
 import 'package:flutter/material.dart';
 
@@ -16,11 +18,12 @@ class DetailsScreen extends StatelessWidget {
   final int id;
   @override
   Widget build(BuildContext context) {
+    var width = context.screenWidth;
     // var blog = blogs.where((blog) => blog.id! == id).first;
     return Scaffold(
-      backgroundColor: kWhiteColor,
+      // backgroundColor: kWhiteColor,
       appBar: AppBar(
-        backgroundColor: kWhiteColor,
+        // backgroundColor: kWhiteColor,
         title: GestureDetector(
           onTap: () {
             Navigator.pop(context);
@@ -34,7 +37,7 @@ class DetailsScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: width > 945 ? 100 : 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
@@ -46,7 +49,7 @@ class DetailsScreen extends StatelessWidget {
                   color: kWhiteColor,
                   // border: Border.all(),
                 ),
-                // padding: EdgeInsets.all(50),
+                padding: EdgeInsets.all(50),
                 // margin: EdgeInsets.only(left: 200, right: 200),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -63,6 +66,13 @@ class DetailsScreen extends StatelessWidget {
                         ),
                       ),
                     if (blog.title != null) SizedBox(height: 32),
+                    if (blog.imageAssetPath != null)
+                      Image.asset(
+                        blog.imageAssetPath!,
+                        height: context.screenHeight * .5,
+                      ),
+                    if (blog.imageAssetPath != null) SizedBox(height: 32),
+
                     if (blog.subTitle != null)
                       Text(
                         blog.subTitle!,
@@ -76,7 +86,7 @@ class DetailsScreen extends StatelessWidget {
                     if (blog.content != null) Text(blog.content!),
                   ],
                 ),
-              ),
+              ).addBorder,
               SizedBox(height: 200),
             ],
           ),

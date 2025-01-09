@@ -11,10 +11,14 @@ class RecentPostItem extends StatelessWidget {
     required this.blog,
     this.width,
     this.height,
+    this.showBorder = true,
+    this.maxLines,
   });
   final BlogModel blog;
   final double? width;
   final double? height;
+  final bool showBorder;
+  final int? maxLines;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -25,26 +29,17 @@ class RecentPostItem extends StatelessWidget {
         //   id: blog.id!,
         // ));
         // router.push()
-        // html.window.history.pushState({}, '', '/blog-${blog.id!}');
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (_) => DetailsScreen(
-        //       blog: blog,
-        //     ),
-        //   ),
-        // );
       },
       child: Container(
         height: height,
         width: width,
         decoration: BoxDecoration(
-          border: Border.all(),
+          border: showBorder ? Border.all() : null,
         ),
         child: Padding(
           padding: const EdgeInsets.only(
-            left: 24,
-            right: 24,
+            // left: 24,
+            // right: 24,
             top: 24,
             bottom: 10,
           ),
@@ -60,6 +55,13 @@ class RecentPostItem extends StatelessWidget {
                   ),
                 ),
               SizedBox(height: 10),
+              Image.asset(
+                blog.imageAssetPath!,
+                height: 280,
+                width: 450,
+                fit: BoxFit.cover,
+              ),
+              SizedBox(height: 20),
               if (blog.title != null)
                 Text(
                   blog.title!,
@@ -76,7 +78,8 @@ class RecentPostItem extends StatelessWidget {
                     fontSize: 16,
                     fontWeight: FontWeight.normal,
                   ),
-                  maxLines: 8,
+                  // maxLines: 8,
+                  maxLines: maxLines,
                   overflow: TextOverflow.ellipsis,
                 ),
               Spacer(),

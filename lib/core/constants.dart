@@ -90,6 +90,7 @@ If you're struggling with weight and suspect poor sleep is a factor, consider th
 4. **Be Physically Active**: Regular exercise promotes better sleep and helps manage weight.
 5. **Seek Professional Help**: If sleep issues persist, consult a healthcare provider to address underlying problems like sleep apnea.
 ''',
+    imageAssetPath: 'assets/images/image2.jpg',
     id: 4,
   ),
   BlogModel(
@@ -127,6 +128,7 @@ Rest days are vital for muscle repair and overall health. Incorporate stretching
 Keep track of your workouts, meals, and milestones. Use apps or journals to monitor your journey. Seeing progress—even small wins—can be incredibly motivating.
 ''',
     date: DateTime(2025, 01, 04),
+    imageAssetPath: 'assets/images/image2.jpg',
     id: 3,
   ),
   BlogModel(
@@ -150,6 +152,7 @@ Life Lessons From Fitness
 ### Celebrate Progress: Whether it's lifting heavier weights or finding moments of joy, celebrate every milestone, big or small.
 
 ''',
+    imageAssetPath: 'assets/images/image2.jpg',
     id: 2,
   ),
   BlogModel(
@@ -180,6 +183,7 @@ Tips to Improve Sleep Quality
 5. Watch Your Diet: Avoid heavy meals, caffeine, and alcohol close to bedtime.
 ''',
     date: DateTime(2025, 01, 02),
+    imageAssetPath: 'assets/images/image2.jpg',
     id: 1,
   ),
 ];

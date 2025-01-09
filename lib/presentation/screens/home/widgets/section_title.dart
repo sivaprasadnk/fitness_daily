@@ -11,14 +11,25 @@ class SectionTitle extends StatelessWidget {
   final Color textColor;
   @override
   Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: TextStyle(
-        fontSize: 24,
-        fontWeight: FontWeight.w500,
-        fontFamily: kPlayFairDisplayFont,
-        color: textColor,
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.w500,
+            fontFamily: kPlayFairDisplayFont,
+            color: textColor,
+          ),
+        ),
+        SizedBox(height: 20),
+        Container(
+          height: 6,
+          width: 50,
+          color: Colors.orange,
+        ),
+      ],
     );
   }
 }

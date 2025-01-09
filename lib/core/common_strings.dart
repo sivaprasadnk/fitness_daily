@@ -4,4 +4,4 @@ const kRobotoFont = 'Roboto';
 const kLoraFont = 'Lora';
 
 ///
-const kAppName = 'FitnessThoughts By SP';
+const kAppName = 'FitnessThoughts';

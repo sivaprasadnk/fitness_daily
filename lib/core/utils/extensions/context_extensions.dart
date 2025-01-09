@@ -9,4 +9,9 @@ extension ContextExtensions on BuildContext {
   double get screenHeight => screenSize.height;
   bool get isMobileDevice => screenWidth < mobileBreakPoint;
   bool get isLargeDevice => !isMobileDevice;
+  double get horizontalPadding => screenWidth > 1325
+      ? 150
+      : screenWidth > 950
+          ? 80
+          : 24;
 }

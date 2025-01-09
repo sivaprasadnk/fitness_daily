@@ -1,3 +1,4 @@
+import 'package:fitness_daily/core/common_colors.dart';
 import 'package:fitness_daily/core/common_strings.dart';
 import 'package:fitness_daily/router.dart';
 import 'package:flutter/material.dart';
@@ -20,10 +21,11 @@ class MyApp extends StatelessWidget {
       title: kAppName,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // scaffoldBackgroundColor: kBlueGrey1Color,
+        scaffoldBackgroundColor: kWhiteColor,
         fontFamily: kLoraFont,
         appBarTheme: AppBarTheme(
           scrolledUnderElevation: 0,
+          backgroundColor: kWhiteColor,
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
