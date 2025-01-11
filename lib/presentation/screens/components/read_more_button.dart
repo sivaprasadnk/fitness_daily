@@ -1,4 +1,6 @@
+import 'package:fitness_daily/core/locator.dart';
 import 'package:fitness_daily/core/utils/extensions/widget_extensions.dart';
+import 'package:fitness_daily/domain/use_case/get_recent_posts.dart';
 import 'package:flutter/material.dart';
 
 class ReadMoreButton extends StatelessWidget {
@@ -14,10 +16,11 @@ class ReadMoreButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
+      onTap: () async {
         if (callback != null) {
           callback!.call();
         }
+        await locator<GetRecentPosts>().call();
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,

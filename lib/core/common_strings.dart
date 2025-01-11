@@ -5,3 +5,5 @@ const kLoraFont = 'Lora';
 
 ///
 const kAppName = 'FitnessThoughts';
+
+String baseUrl = 'https://fitnessblogbackend-production.up.railway.app/';

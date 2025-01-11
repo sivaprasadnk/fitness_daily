@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:fitness_daily/core/common_colors.dart';
 import 'package:fitness_daily/core/utils/extensions/date_time_extensions.dart';
 import 'package:fitness_daily/data/models/blog_model.dart';
 import 'package:fitness_daily/presentation/screens/components/read_more_button.dart';
@@ -46,22 +47,26 @@ class RecentPostItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: Image.asset(
+                  blog.imageAssetPath!,
+                  height: 280,
+                  width: 450,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              SizedBox(height: 20),
               if (blog.date != null)
                 Text(
                   blog.date!.displaydate(),
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
                     fontSize: 12,
+                    color: kGreyColor,
                   ),
                 ),
               SizedBox(height: 10),
-              Image.asset(
-                blog.imageAssetPath!,
-                height: 280,
-                width: 450,
-                fit: BoxFit.cover,
-              ),
-              SizedBox(height: 20),
               if (blog.title != null)
                 Text(
                   blog.title!,

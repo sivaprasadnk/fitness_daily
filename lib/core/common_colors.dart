@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const kTransparentColor = Colors.transparent;
 const kBlackColor = Colors.black;
 const kBlack12Color = Colors.black12;
 const kCustomBlueColor = Color.fromRGBO(0, 14, 59, 1);

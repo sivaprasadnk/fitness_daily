@@ -1,9 +1,11 @@
 import 'package:fitness_daily/core/common_colors.dart';
 import 'package:fitness_daily/core/common_strings.dart';
+import 'package:fitness_daily/core/locator.dart';
 import 'package:fitness_daily/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  setup();
   runApp(MyApp());
 }
 

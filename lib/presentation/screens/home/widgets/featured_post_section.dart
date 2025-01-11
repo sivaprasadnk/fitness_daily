@@ -42,11 +42,14 @@ class FeaturedPostSection extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    blog.imageAssetPath!,
-                    height: 350,
-                    width: 450,
-                    fit: BoxFit.cover,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      blog.imageAssetPath!,
+                      height: 350,
+                      width: 450,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   SizedBox(width: 50),
                   Expanded(

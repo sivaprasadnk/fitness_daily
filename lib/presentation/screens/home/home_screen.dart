@@ -3,6 +3,7 @@ import 'package:fitness_daily/core/common_strings.dart';
 import 'package:fitness_daily/core/constants.dart';
 import 'package:fitness_daily/core/utils/extensions/context_extensions.dart';
 import 'package:fitness_daily/presentation/screens/about/about_screen.dart';
+import 'package:fitness_daily/presentation/screens/home/widgets/cover_image.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/featured_post_section.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/footer_widget.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/menu_icon.dart';
@@ -24,12 +25,10 @@ class HomeScreen extends StatelessWidget {
             : 20;
     horizontalPadding = context.horizontalPadding;
     return Scaffold(
-      // backgroundColor: kWhiteColor,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        // scrolledUnderElevation: 0,
         title: Text(
           kAppName,
           style: TextStyle(
@@ -69,22 +68,8 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 30),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: horizontalPadding,
-                  right: horizontalPadding,
-                  bottom: width > 945 ? 75 : 0,
-                ),
-                child: Image.asset(
-                  'assets/images/cover1.jpg',
-                  height: 700,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              width > mobileBreakPoint
-                  ? SizedBox(height: 00)
-                  : SizedBox(height: 0),
+              CoverImage(),
+              
               // Center(
               //   child: Column(
               //     children: [
