@@ -23,7 +23,6 @@ class RecentPostsSection extends StatelessWidget {
       postCount = 1;
     }
     var postwidth = postCount == 3
-        // ? (context.screenWidth - horizontalPadding) / 4
         ? horizontalPadding == 150
             ? (context.screenWidth - (horizontalPadding * 2)) / 3 - 30
             : (context.screenWidth - (horizontalPadding * 2)) / 3 - 50
@@ -65,56 +64,26 @@ class RecentPostsSection extends StatelessWidget {
                         );
                       }).toList(),
                     )
-                  : RecentPostItem(
-                      blog: blogs.first,
-                      maxLines: 7,
-                      height: 680,
-                      showBorder: false,
-                      width: postwidth,
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: blogs.map((blog) {
+                        return RecentPostItem(
+                          blog: blog,
+                          maxLines: 7,
+                          height: 650,
+                          showBorder: false,
+                          width: postwidth,
+                        );
+                      }).toList(),
                     );
+              // : RecentPostItem(
+              //     blog: blogs.first,
+              //     maxLines: 7,
+              //     height: 680,
+              //     showBorder: false,
+              //     width: postwidth,
+              //   );
             }),
-            // SizedBox(
-            //   height: 700,
-            //   width: width,
-            //   child: GridView.builder(
-            //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            //       crossAxisCount: 1,
-            //       mainAxisSpacing: 20,
-            //       mainAxisExtent: 350,
-            //     ),
-            //     shrinkWrap: true,
-            //     itemCount: min(blogs.length, 3),
-            //     scrollDirection: Axis.horizontal,
-            //     itemBuilder: (context, index) {
-            //       var blog = blogs[index];
-            //       return RecentPostItem(
-            //         blog: blog,
-            //         maxLines: 7,
-            //         height: 630,
-            //         showBorder: false,
-            //         // width: 30,
-            //       );
-            //     },
-            //   ),
-            // )
-            // else
-            // ...blogs.map(
-            //   (blog) {
-            //     return Padding(
-            //       padding: EdgeInsets.only(
-            //         bottom: 20,
-            //         right: horizontalPadding,
-            //       ),
-            //       child: RecentPostItem(
-            //         blog: blog,
-            //         width: contentWidth,
-            //         height: 300,
-            //         maxLines: 5,
-            //         showBorder: false,
-            //       ),
-            //     );
-            // },
-            // )
           ],
         ),
       ),

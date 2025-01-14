@@ -38,15 +38,11 @@ class RecentPostItem extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.only(
-            // left: 24,
-            // right: 24,
-            top: 0,
             bottom: 10,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               ClipRRect(
                 borderRadius: BorderRadius.circular(6),
                 child: showAssetImage
@@ -92,7 +88,8 @@ class RecentPostItem extends StatelessWidget {
                   maxLines: maxLines,
                   overflow: TextOverflow.ellipsis,
                 ),
-              Spacer(),
+              // Spacer(),
+              SizedBox(height: 24),
               AbsorbPointer(
                 child: ReadMoreButton(),
               ),
