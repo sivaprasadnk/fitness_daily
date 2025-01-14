@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       title: kAppName,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: kWhiteColor,
+        scaffoldBackgroundColor: kBgColor,
         fontFamily: kLoraFont,
         appBarTheme: AppBarTheme(
           scrolledUnderElevation: 0,

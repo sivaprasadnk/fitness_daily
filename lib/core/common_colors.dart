@@ -9,3 +9,4 @@ const kGreyColor = Colors.grey;
 const kBlueGreyColor = Colors.blueGrey;
 const kBlueGrey1Color = Color.fromRGBO(207, 222, 252, 1);
 const kWhiteColor = Colors.white;
+const kBgColor = Color.fromRGBO(244, 242, 238, 1);

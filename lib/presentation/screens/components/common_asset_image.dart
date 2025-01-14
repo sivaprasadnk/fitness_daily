@@ -6,20 +6,23 @@ class CommonAssetImage extends StatelessWidget {
     required this.imagePath,
     required this.height,
     required this.width,
-    required this.fit,
+    this.fit = BoxFit.cover,
   });
   final String imagePath;
   final double height;
   final double width;
-  final BoxFit fit;
+  final BoxFit? fit;
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      imagePath,
-      width: width,
-      height: height,
-      fit: fit,
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: Image.asset(
+        imagePath,
+        width: width,
+        height: height,
+        fit: fit,
+      ),
     );
   }
 }

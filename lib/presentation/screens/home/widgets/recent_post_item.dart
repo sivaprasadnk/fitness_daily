@@ -40,7 +40,7 @@ class RecentPostItem extends StatelessWidget {
           padding: const EdgeInsets.only(
             // left: 24,
             // right: 24,
-            top: 24,
+            top: 0,
             bottom: 10,
           ),
           child: Column(
@@ -54,17 +54,11 @@ class RecentPostItem extends StatelessWidget {
                         imagePath: blog.imageAssetPath!,
                         height: 280,
                         width: double.infinity,
-                        fit: BoxFit.cover,
                       )
                     : CommonNetworkImage(
                         imageUrl: blog.imageNetworkPath!,
-                        // cacheKey: blog.imageNetworkPath!,
-                        // imageUrl: image,
-                        // cacheKey: image,
-                        // imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
                         height: 280,
                         width: double.infinity,
-                        // fit: BoxFit.cover,
                       ),
               ),
               SizedBox(height: 20),

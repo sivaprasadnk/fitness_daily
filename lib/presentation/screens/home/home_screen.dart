@@ -18,12 +18,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = context.screenWidth;
-    // double horizontalPadding = width > 1325
-    //     ? 150
-    //     : width > 950
-    //         ? 80
-    //         : 20;
-    double horizontalPadding = context.horizontalPadding;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -70,7 +64,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               SizedBox(height: 30),
               CoverImage(),
-              // if (width > mobileBreakPoint) SizedBox(height: 75),
+              SizedBox(height: 50),
               FeaturedPostSection(),
               RecentPostsSection(),
               QuoteSection(),

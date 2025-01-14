@@ -31,164 +31,154 @@ class FeaturedPostSection extends StatelessWidget {
           padding: EdgeInsets.only(
             left: horizontalPadding,
             right: horizontalPadding,
-            bottom: width > 945 ? 75 : 0,
+            bottom: width > 945 ? 75 : 16,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(height: 50),
-              SectionTitle(
-                title: 'F E A T U R E D\nP O S T',
-                textColor: color,
-              ),
-              SizedBox(height: 50),
-              if (width > 945)
-                SizedBox(
-                  width: double.infinity,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: blog.imageAssetPath != null &&
-                                blog.imageAssetPath!.isNotEmpty
-                            ? CommonAssetImage(
-                                // imageUrl: blog.imageNetworkPath!,
-                                // cacheKey: blog.imageNetworkPath!,
-                                imagePath: blog.imageAssetPath!,
-                                // cacheKey: image,
-                                // imageRenderMethodForWeb:
-                                //     ImageRenderMethodForWeb.HttpGet,
-                                height: 350,
-                                width: 450,
-                                fit: BoxFit.cover,
-                              )
-                            : SizedBox.shrink(),
-                      ),
-                      SizedBox(width: 50),
-                      Expanded(
-                        child: SizedBox(
-                          height: 350,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              SizedBox(height: 20),
-                              Text(
-                                blog.dateString!,
-                                style: TextStyle(
-                                  color: color,
+          child: Container(
+            decoration: BoxDecoration(
+              color: kWhiteColor,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            padding: EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SectionTitle(
+                  title: 'F E A T U R E D\nP O S T',
+                  textColor: color,
+                ),
+                SizedBox(height: 50),
+                if (width > 945)
+                  SizedBox(
+                    width: double.infinity,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (blog.imageAssetPath != null &&
+                            blog.imageAssetPath!.isNotEmpty)
+                          CommonAssetImage(
+                            imagePath: blog.imageAssetPath!,
+                            height: 350,
+                            width: 450,
+                          ),
+                        SizedBox(width: 50),
+                        Expanded(
+                          child: SizedBox(
+                            height: 350,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                SizedBox(height: 20),
+                                Text(
+                                  blog.dateString!,
+                                  style: TextStyle(
+                                    color: color,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 20),
-                              Text(
-                                blog.title!,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18,
-                                  color: color,
+                                SizedBox(height: 20),
+                                Text(
+                                  blog.title!,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                    color: color,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 20),
-                              Text(
-                                blog.subTitle!,
-                                textAlign: TextAlign.justify,
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: color,
+                                SizedBox(height: 20),
+                                Text(
+                                  blog.subTitle!,
+                                  textAlign: TextAlign.justify,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: color,
+                                  ),
+                                  maxLines: width < 1100 ? 6 : 10,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                                maxLines: width < 1100 ? 6 : 10,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              Spacer(),
-                              ReadMoreButton(
-                                color: color,
-                                callback: () {
-                                  AutoRouter.of(context).push(
-                                      DetailsRoute(id: blog.id!, blog: blog));
-                                },
-                              ),
-                              SizedBox(height: 20),
-                            ],
+                                Spacer(),
+                                ReadMoreButton(
+                                  color: color,
+                                  callback: () {
+                                    AutoRouter.of(context).push(
+                                        DetailsRoute(id: blog.id!, blog: blog));
+                                  },
+                                ),
+                                SizedBox(height: 20),
+                              ],
+                            ),
                           ),
                         ),
+                        // if (width > 1337) SizedBox(width: 200),
+                      ],
+                    ),
+                  )
+                else ...[
+                  Padding(
+                    padding: EdgeInsets.only(
+                      right: context.isLargeDevice ? horizontalPadding : 0,
+                    ),
+                    child: kIsWeb
+                        ? CommonAssetImage(
+                            imagePath: blog.imageAssetPath!,
+                            height: context.isLargeDevice ? 350 : 280,
+                            width:
+                                context.isLargeDevice ? 450 : double.infinity,
+                          )
+                        : CommonNetworkImage(
+                            imageUrl: blog.imageNetworkPath!,
+                            height: context.isLargeDevice ? 350 : 280,
+                            width:
+                                context.isLargeDevice ? 450 : double.infinity,
+                          ),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    blog.dateString!,
+                    style: TextStyle(
+                      color: color,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: EdgeInsets.only(right: horizontalPadding),
+                    child: Text(
+                      blog.title!,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: color,
                       ),
-                      // if (width > 1337) SizedBox(width: 200),
-                    ],
-                  ),
-                )
-              else ...[
-                Padding(
-                  padding: EdgeInsets.only(
-                    right: context.isLargeDevice ? horizontalPadding : 0,
-                  ),
-                  child: kIsWeb
-                      ? CommonAssetImage(
-                          imagePath: blog.imageAssetPath!,
-                          height: context.isLargeDevice ? 350 : 280,
-                          width: context.isLargeDevice ? 450 : double.infinity,
-                          fit: BoxFit.cover,
-                        )
-                      : CommonNetworkImage(
-                          imageUrl: blog.imageNetworkPath!,
-                          height: context.isLargeDevice ? 350 : 280,
-                          width: context.isLargeDevice ? 450 : double.infinity,
-                          // fit: BoxFit.cover,
-                        ),
-                  // child: Image.asset(
-                  //   blog.imageAssetPath!,
-                  //   height: 250,
-                  //   width: double.infinity,
-                  //   fit: BoxFit.cover,
-                  // ),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  blog.dateString!,
-                  style: TextStyle(
-                    color: color,
-                  ),
-                ),
-                SizedBox(height: 20),
-                Padding(
-                  padding: EdgeInsets.only(right: horizontalPadding),
-                  child: Text(
-                    blog.title!,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: color,
                     ),
                   ),
-                ),
-                SizedBox(height: 20),
-                Padding(
-                  padding: EdgeInsets.only(right: horizontalPadding),
-                  child: Text(
-                    blog.subTitle!,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: color,
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: EdgeInsets.only(right: horizontalPadding),
+                    child: Text(
+                      blog.subTitle!,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: color,
+                      ),
+                      maxLines: width < 1100 ? 6 : 10,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    maxLines: width < 1100 ? 6 : 10,
-                    overflow: TextOverflow.ellipsis,
                   ),
-                ),
-                SizedBox(height: 20),
-                Padding(
-                  padding: EdgeInsets.only(right: horizontalPadding),
-                  child: ReadMoreButton(
-                    color: color,
-                    callback: () {
-                      AutoRouter.of(context)
-                          .push(DetailsRoute(id: blog.id!, blog: blog));
-                    },
+                  SizedBox(height: 20),
+                  Padding(
+                    padding: EdgeInsets.only(right: horizontalPadding),
+                    child: ReadMoreButton(
+                      color: color,
+                      callback: () {
+                        AutoRouter.of(context)
+                            .push(DetailsRoute(id: blog.id!, blog: blog));
+                      },
+                    ),
                   ),
-                ),
-                SizedBox(height: 70),
+                  SizedBox(height: 70),
+                ],
               ],
-            ],
+            ),
           ),
         );
       },
