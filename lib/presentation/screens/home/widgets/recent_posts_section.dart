@@ -1,8 +1,9 @@
-import 'package:fitness_daily/core/constants.dart';
 import 'package:fitness_daily/core/utils/extensions/context_extensions.dart';
+import 'package:fitness_daily/presentation/providers/recent_blog_provider.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/recent_post_item.dart';
 import 'package:fitness_daily/presentation/screens/home/widgets/section_title.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RecentPostsSection extends StatelessWidget {
   const RecentPostsSection({super.key});
@@ -10,24 +11,24 @@ class RecentPostsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = context.screenWidth;
-    // double horizontalPadding = width > 1325 ? 150 : width * .08;
-    // horizontalPadding = 0;
-    // var horizontalPadding = width * .08;
     double horizontalPadding = width > 1325
         ? 150
         : width > 900
             ? 100
             : 50;
     horizontalPadding = context.horizontalPadding;
-
-    // double contentWidth = width > 1000 ? 500 : 200;
     var postCount = width > 1150 ? 3 : 2;
+    if (context.isMobileDevice) {
+      postCount = 1;
+    }
     var postwidth = postCount == 3
         // ? (context.screenWidth - horizontalPadding) / 4
         ? horizontalPadding == 150
             ? (context.screenWidth - (horizontalPadding * 2)) / 3 - 30
             : (context.screenWidth - (horizontalPadding * 2)) / 3 - 50
-        : (context.screenWidth - horizontalPadding * 2) / 2 - 50;
+        : postCount == 2
+            ? (context.screenWidth - horizontalPadding * 2) / 2 - 50
+            : double.infinity;
 
     // contentWidth = double.infinity;
     return Padding(
@@ -42,18 +43,29 @@ class RecentPostsSection extends StatelessWidget {
         children: [
           SectionTitle(title: 'R E C E N T\nP O S T S'),
           SizedBox(height: 50),
-          // if (width > 1080)
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: blogs.take(postCount).map((blog) {
-              return RecentPostItem(
-                blog: blog,
-                maxLines: 7,
-                height: 630,
-                showBorder: false,
-                width: postwidth,
-              );
-            }).toList(),
+          Consumer(builder: (context, ref, _) {
+            var blogs = ref.watch(recentBlogProvider);
+            return postCount > 1
+                ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: blogs.take(postCount).map((blog) {
+                      return RecentPostItem(
+                        blog: blog,
+                        maxLines: 7,
+                        height: 630,
+                        showBorder: false,
+                        width: postwidth,
+                      );
+                    }).toList(),
+                  )
+                : RecentPostItem(
+                    blog: blogs.first,
+                    maxLines: 7,
+                    height: 680,
+                    showBorder: false,
+                    width: postwidth,
+                  );
+          }
           ),
           // SizedBox(
           //   height: 700,

@@ -1,9 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fitness_daily/core/common_colors.dart';
-import 'package:fitness_daily/core/utils/extensions/date_time_extensions.dart';
+import 'package:fitness_daily/core/utils/extensions/context_extensions.dart';
 import 'package:fitness_daily/data/models/blog_model.dart';
+import 'package:fitness_daily/presentation/screens/components/common_asset_image.dart';
+import 'package:fitness_daily/presentation/screens/components/common_network_image.dart';
 import 'package:fitness_daily/presentation/screens/components/read_more_button.dart';
 import 'package:fitness_daily/router.gr.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 // import 'package:universal_html/html.dart' as html;
 class RecentPostItem extends StatelessWidget {
@@ -22,14 +25,10 @@ class RecentPostItem extends StatelessWidget {
   final int? maxLines;
   @override
   Widget build(BuildContext context) {
+    var showAssetImage = kIsWeb || context.isLargeDevice;
     return GestureDetector(
       onTap: () {
         AutoRouter.of(context).push(DetailsRoute(id: blog.id!, blog: blog));
-        // context.pushRoute(DetailsRoute(
-        //   // blog: blog,
-        //   id: blog.id!,
-        // ));
-        // router.push()
       },
       child: Container(
         height: height,
@@ -47,19 +46,31 @@ class RecentPostItem extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
               ClipRRect(
                 borderRadius: BorderRadius.circular(6),
-                child: Image.asset(
-                  blog.imageAssetPath!,
-                  height: 280,
-                  width: 450,
-                  fit: BoxFit.cover,
-                ),
+                child: showAssetImage
+                    ? CommonAssetImage(
+                        imagePath: blog.imageAssetPath!,
+                        height: 280,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      )
+                    : CommonNetworkImage(
+                        imageUrl: blog.imageNetworkPath!,
+                        // cacheKey: blog.imageNetworkPath!,
+                        // imageUrl: image,
+                        // cacheKey: image,
+                        // imageRenderMethodForWeb: ImageRenderMethodForWeb.HtmlImage,
+                        height: 280,
+                        width: double.infinity,
+                        // fit: BoxFit.cover,
+                      ),
               ),
               SizedBox(height: 20),
-              if (blog.date != null)
+              if (blog.dateString != null)
                 Text(
-                  blog.date!.displaydate(),
+                  blog.dateString!,
                   style: TextStyle(
                     fontWeight: FontWeight.normal,
                     fontSize: 12,

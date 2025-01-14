@@ -18,7 +18,7 @@
             "name": "fitness_daily mobile",
             "request": "launch",
             "args": [
-                "-d",
+                "",
             ],
             "flutterMode": "debug",
             "type": "dart"

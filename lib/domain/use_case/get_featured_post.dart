@@ -1,10 +1,10 @@
 import 'package:fitness_daily/data/models/blog_model.dart';
 import 'package:fitness_daily/data/repository/repository_impl.dart';
 
-class GetRecentPosts {
+class GetFeaturedPost {
   final RepositoryImpl repository;
-  GetRecentPosts(this.repository);
-  Future<List<BlogModel>> call() async {
-    return await repository.getRecentPosts();
+  GetFeaturedPost(this.repository);
+  Future<BlogModel> call() async {
+    return await repository.getFeaturePost();
   }
 }

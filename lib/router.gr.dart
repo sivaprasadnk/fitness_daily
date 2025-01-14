@@ -8,22 +8,24 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:fitness_daily/data/models/blog_model.dart' as _i5;
+import 'package:auto_route/auto_route.dart' as _i4;
+import 'package:fitness_daily/data/models/blog_model.dart' as _i6;
 import 'package:fitness_daily/presentation/screens/details/details_screen.dart'
     as _i1;
 import 'package:fitness_daily/presentation/screens/home/home_screen.dart'
     as _i2;
-import 'package:flutter/material.dart' as _i4;
+import 'package:fitness_daily/presentation/screens/splash_screen/splash_screen.dart'
+    as _i3;
+import 'package:flutter/material.dart' as _i5;
 
 /// generated route for
 /// [_i1.DetailsScreen]
-class DetailsRoute extends _i3.PageRouteInfo<DetailsRouteArgs> {
+class DetailsRoute extends _i4.PageRouteInfo<DetailsRouteArgs> {
   DetailsRoute({
-    _i4.Key? key,
-    required _i5.BlogModel blog,
+    _i5.Key? key,
+    required _i6.BlogModel blog,
     required int id,
-    List<_i3.PageRouteInfo>? children,
+    List<_i4.PageRouteInfo>? children,
   }) : super(
           DetailsRoute.name,
           args: DetailsRouteArgs(
@@ -37,7 +39,7 @@ class DetailsRoute extends _i3.PageRouteInfo<DetailsRouteArgs> {
 
   static const String name = 'DetailsRoute';
 
-  static _i3.PageInfo page = _i3.PageInfo(
+  static _i4.PageInfo page = _i4.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<DetailsRouteArgs>();
@@ -57,9 +59,9 @@ class DetailsRouteArgs {
     required this.id,
   });
 
-  final _i4.Key? key;
+  final _i5.Key? key;
 
-  final _i5.BlogModel blog;
+  final _i6.BlogModel blog;
 
   final int id;
 
@@ -71,8 +73,8 @@ class DetailsRouteArgs {
 
 /// generated route for
 /// [_i2.HomeScreen]
-class HomeRoute extends _i3.PageRouteInfo<void> {
-  const HomeRoute({List<_i3.PageRouteInfo>? children})
+class HomeRoute extends _i4.PageRouteInfo<void> {
+  const HomeRoute({List<_i4.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
           initialChildren: children,
@@ -80,10 +82,29 @@ class HomeRoute extends _i3.PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static _i3.PageInfo page = _i3.PageInfo(
+  static _i4.PageInfo page = _i4.PageInfo(
     name,
     builder: (data) {
       return const _i2.HomeScreen();
+    },
+  );
+}
+
+/// generated route for
+/// [_i3.SplashScreen]
+class SplashRoute extends _i4.PageRouteInfo<void> {
+  const SplashRoute({List<_i4.PageRouteInfo>? children})
+      : super(
+          SplashRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SplashRoute';
+
+  static _i4.PageInfo page = _i4.PageInfo(
+    name,
+    builder: (data) {
+      return const _i3.SplashScreen();
     },
   );
 }

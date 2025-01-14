@@ -1,17 +1,18 @@
 import 'package:fitness_daily/data/data_source/remote_datasource.dart';
+import 'package:fitness_daily/data/models/blog_model.dart';
 import 'package:fitness_daily/domain/repository/repository.dart';
 
 class RepositoryImpl extends Repository {
   final RemoteDatasourceImpl remoteDatasource;
   RepositoryImpl(this.remoteDatasource);
   @override
-  Future getRecentPosts() async {
+  Future<List<BlogModel>> getRecentPosts() async {
     var response = await remoteDatasource.getRecentPosts();
-    return;
+    return response;
   }
 
   @override
-  Future getFeaturePost() async {
+  Future<BlogModel> getFeaturePost() async {
     return await remoteDatasource.getFeaturePost();
   }
 }

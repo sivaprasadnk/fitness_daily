@@ -25,8 +25,8 @@ class RemoteDatasourceImpl extends RemoteDatasource {
 
   @override
   Future<BlogModel> getFeaturePost() async {
-    var url = '${baseUrl}feature-post';
+    var url = '${baseUrl}featured-post';
     var response = await dio.getUri(Uri.parse(url));
-    return BlogModel.fromJson(response.data);
+    return BlogModel.fromJson(response.data['data']);
   }
 }

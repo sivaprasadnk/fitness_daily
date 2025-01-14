@@ -18,15 +18,16 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var width = context.screenWidth;
-    double horizontalPadding = width > 1325
-        ? 150
-        : width > 950
-            ? 80
-            : 20;
-    horizontalPadding = context.horizontalPadding;
+    // double horizontalPadding = width > 1325
+    //     ? 150
+    //     : width > 950
+    //         ? 80
+    //         : 20;
+    double horizontalPadding = context.horizontalPadding;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         centerTitle: true,
         title: Text(
@@ -69,32 +70,11 @@ class HomeScreen extends StatelessWidget {
             children: [
               SizedBox(height: 30),
               CoverImage(),
-              
-              // Center(
-              //   child: Column(
-              //     children: [
-              //       Text(
-              //         'Welcome to',
-              //         style: TextStyle(
-              //           fontWeight: FontWeight.w300,
-              //           fontSize: 20,
-              //         ),
-              //       ),
-              //       Text(
-              //         kAppName,
-              //         style: TextStyle(
-              //           fontWeight: FontWeight.bold,
-              //           fontSize: 30,
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              if (width > mobileBreakPoint) SizedBox(height: 75),
-              FeaturedPostSection(), 
+              // if (width > mobileBreakPoint) SizedBox(height: 75),
+              FeaturedPostSection(),
               RecentPostsSection(),
               QuoteSection(),
-              SizedBox(height: context.isLargeDevice ? 150 : 50),
+              // SizedBox(height: context.isLargeDevice ? 150 : 50),
               FooterWidget(),
             ],
           ),
